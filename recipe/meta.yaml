@@ -18,7 +18,7 @@ build:
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - mkdir -p ${CONDA_PREFIX}/scripts
-    - find . -wholename '*/scripts/*.py' -exec bash -c 'FN={} && NEW_FN=${CONDA_PREFIX}/scripts/$(basename ${FN} .py) && echo cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
+    - find . -wholename '*/scripts/*.py' -exec bash -xc 'FN={} && NEW_FN=${CONDA_PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
 
 requirements:
   host:
