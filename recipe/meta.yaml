@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "6.21.14" %}
+{% set version = "6.22.6" %}
 {% set major, minor, patch = version.split(".") %}
 
 package:
@@ -8,17 +8,18 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: 58737ce0833daa1ce5687a6a8669e6d804e642c9d4eaec141d82153fd183821b
+  sha256: 0a41180881557301cee0d37b66a2f2ec28c3ec9b122bd2e4e8906af25051ae3e
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
+    - 4253.patch
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - mkdir -p ${CONDA_PREFIX}/scripts
-    - find . -wholename '*/scripts/*.py' -exec bash -xc 'FN={} && NEW_FN=${CONDA_PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
+    - find ${CONDA_PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${CONDA_PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
 
 requirements:
   host:
