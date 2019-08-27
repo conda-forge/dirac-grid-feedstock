@@ -15,11 +15,11 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
-    - mkdir -p ${CONDA_PREFIX}/scripts
-    - find ${CONDA_PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${CONDA_PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
+    - mkdir -p ${PREFIX}/scripts
+    - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
 
 requirements:
   host:
@@ -61,6 +61,9 @@ requirements:
 test:
   imports:
     - DIRAC
+  commands:
+    - dirac-jobexec.py --help
+    - $CONDA_PREFIX/scripts/dirac-jobexec --help
 
 about:
   home: http://diracgrid.org
