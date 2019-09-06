@@ -11,7 +11,6 @@ source:
   sha256: 6fb91aa072deeba81139154a28a7805cc25d3915ac6f2fdd94bfbfebce1960b6
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
-    - 4253.patch
 
 build:
   noarch: python
