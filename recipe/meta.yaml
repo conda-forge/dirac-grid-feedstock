@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "6.22.10" %}
+{% set version = "6.22.11" %}
 {% set major, minor, patch = version.split(".") %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: f635758898ccec2c6d9df2384a4bce1227853feffe39d168181354e45022791a
+  sha256: 966264cda374508f981b33cb90850403682745f9ea14b68d01270fae72da0a40
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
