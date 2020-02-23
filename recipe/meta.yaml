@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - mkdir -p ${PREFIX}/scripts
@@ -33,7 +33,7 @@ requirements:
     - future
     - futures
     - GitPython >=2.1.0
-    - matplotlib >=2.1.0,<3.0
+    - matplotlib-base >=2.1.0,<3.0
     - mysqlclient >=1.2.5
     - jinja2
     - numpy >=1.10.1
