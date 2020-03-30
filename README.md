@@ -3,7 +3,7 @@ About dirac-grid
 
 Home: http://diracgrid.org
 
-Package license: GPL-3.0
+Package license: GPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
