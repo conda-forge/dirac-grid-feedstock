@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "6r22p21" %}
+{% set version = "7r0p19" %}
 {% set major = version.split('r')[0] %}
 {% set minor = version.split('r')[1].split('p')[0] %}
 {% set patch = version.split('p')[1] %}
@@ -10,15 +10,15 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: f180b564dd710ee7380f483149de5b393911ab12285423e456ee3f258dfbcaf0
+  sha256: b0dee0a9cbe6b13ffbddc19435353c8b898ed864203678ac17db916eea1df92c
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script:
-    - "{{ PYTHON }} -m pip install . --no-deps -vv"
+    - {{ PYTHON }} -m pip install . --no-deps -vv
     - mkdir -p ${PREFIX}/scripts
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
 
@@ -71,7 +71,7 @@ about:
   license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: 'Distributed Infrastructure with Remote Agent Control'
+  summary: Distributed Infrastructure with Remote Agent Control
   description: |
     DIRAC (Distributed Infrastructure with Remote Agent Control) INTERWARE is a
     software framework for distributed computing providing a complete solution
