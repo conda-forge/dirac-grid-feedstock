@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "6r22p21" %}
+{% set version = "7r0p24" %}
 {% set major = version.split('r')[0] %}
 {% set minor = version.split('r')[1].split('p')[0] %}
 {% set patch = version.split('p')[1] %}
@@ -10,17 +10,18 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: f180b564dd710ee7380f483149de5b393911ab12285423e456ee3f258dfbcaf0
+  sha256: e06002775c4b427870e9b9375c414ac836abcf996d3091a6c748b70f5c0dcf54
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
 build:
   noarch: python
-  number: 2
+  number: 0
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - mkdir -p ${PREFIX}/scripts
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
+    - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/bin/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
 
 requirements:
   host:
@@ -55,6 +56,7 @@ requirements:
     - cmreshandler >1.0.0b4
     - rst2pdf >=0.93
     - multi-mechanize >=1.2.0
+    - subprocess32
     - asn1
     - fts-rest
     - pyGSI
