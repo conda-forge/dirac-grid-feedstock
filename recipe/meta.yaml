@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7r0p24" %}
+{% set version = "7r0p32" %}
 {% set major = version.split('r')[0] %}
 {% set minor = version.split('r')[1].split('p')[0] %}
 {% set patch = version.split('p')[1] %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: e06002775c4b427870e9b9375c414ac836abcf996d3091a6c748b70f5c0dcf54
+  sha256: d9496130a71dda6f38276ed3ce32f5a33f764db838369d5e356e37aef1a65020
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
@@ -31,7 +31,7 @@ requirements:
     - python =2.7
     - m2crypto # ==0.32
     - certifi
-    - elasticsearch-dsl ~=6.3.1
+    - elasticsearch-dsl >=6.3.1,<7
     - funcsigs
     - future
     - futures
