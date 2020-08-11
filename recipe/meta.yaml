@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7r0p24" %}
+{% set version = "7r0p32" %}
 {% set major = version.split('r')[0] %}
 {% set minor = version.split('r')[1].split('p')[0] %}
 {% set patch = version.split('p')[1] %}
