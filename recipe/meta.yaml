@@ -31,7 +31,7 @@ requirements:
     - python =2.7
     - m2crypto # ==0.32
     - certifi
-    - elasticsearch-dsl >=6.3.1
+    - elasticsearch-dsl >=6.3.1,<7
     - funcsigs
     - future
     - futures
