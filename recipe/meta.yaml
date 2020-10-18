@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7r0p32" %}
+{% set version = "7r0p36" %}
 {% set major = version.split('r')[0] %}
 {% set minor = version.split('r')[1].split('p')[0] %}
 {% set patch = version.split('p')[1] %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: d9496130a71dda6f38276ed3ce32f5a33f764db838369d5e356e37aef1a65020
+  sha256: 9dac54e8adfc56e5d10b8ff7ad0ad5d88270948b0b51c1ebc55c627b005f5130
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
@@ -22,6 +22,10 @@ build:
     - mkdir -p ${PREFIX}/scripts
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/bin/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
+    - mkdir -p "${PREFIX}/etc/conda/activate.d"
+    - cp "${RECIPE_DIR}/activate"* "${PREFIX}/etc/conda/activate.d"
+    - mkdir -p "${PREFIX}/etc/conda/deactivate.d"
+    - cp "${RECIPE_DIR}/deactivate"* "${PREFIX}/etc/conda/deactivate.d"
 
 requirements:
   host:
@@ -29,7 +33,7 @@ requirements:
     - pip
   run:
     - python =2.7
-    - m2crypto # ==0.32
+    - m2crypto >=0.36
     - certifi
     - elasticsearch-dsl >=6.3.1,<7
     - funcsigs
@@ -59,7 +63,6 @@ requirements:
     - subprocess32
     - asn1
     - fts-rest
-    - pyGSI
 
 test:
   imports:
