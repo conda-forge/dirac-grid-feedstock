@@ -5,9 +5,13 @@ Home: http://diracgrid.org
 
 Package license: GPL-3.0-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dirac-grid-feedstock/blob/master/LICENSE.txt)
 
 Summary: Distributed Infrastructure with Remote Agent Control
+
+Development: https://github.com/DIRACGrid/DIRAC
+
+Documentation: https://dirac.readthedocs.io/
 
 DIRAC (Distributed Infrastructure with Remote Agent Control) INTERWARE is a
 software framework for distributed computing providing a complete solution
