@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/DIRACGrid/DIRAC/archive/v{{ major }}r{{ minor }}p{{ patch }}.tar.gz
-  sha256: 9dac54e8adfc56e5d10b8ff7ad0ad5d88270948b0b51c1ebc55c627b005f5130
+  sha256: bd4486ae44ad904971dd727ccf40dd0efb8fc0e565e916b6789c71380704ff53
   patches:
     - 0001-Patch-rootPath-to-be-CONDA_PREFIX.patch
 
