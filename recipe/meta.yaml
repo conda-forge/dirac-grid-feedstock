@@ -33,7 +33,7 @@ requirements:
     - pip
   run:
     - python =2.7
-    - m2crypto >=0.36
+    - m2crypto  # >=0.36
     - certifi
     - elasticsearch-dsl >=6.3.1,<7
     - funcsigs
