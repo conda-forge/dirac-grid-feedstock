@@ -20,6 +20,8 @@ build:
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - mkdir -p ${PREFIX}/scripts
+    - mv "${RECIPE_DIR}/dirac-notebook-proxy-init.py" "${PREFIX}/bin/"
+    - mv "${RECIPE_DIR}/testNotebookAuth.py" "${PREFIX}/lib/python2.7/site-packages/DIRAC/FrameworkSystem/private/"
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/scripts/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
     - find ${PREFIX} -wholename '*/bin/*.py' -exec bash -c 'FN={} && NEW_FN=${PREFIX}/bin/$(basename ${FN} .py) && cp ${FN} ${NEW_FN} && chmod +x ${NEW_FN}' \;
     - mkdir -p "${PREFIX}/etc/conda/activate.d"
