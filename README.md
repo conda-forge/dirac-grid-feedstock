@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dirac-grid-feed
 
 Summary: Distributed Infrastructure with Remote Agent Control
 
-Development: https://github.com/DIRACGrid/DIRAC
+Development: https://github.com/DIRACGrid/DIRAC/
 
 Documentation: https://dirac.readthedocs.io/
 
