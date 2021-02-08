@@ -1,13 +1,13 @@
 About dirac-grid
 ================
 
-Home: http://diracgrid.org
+Home: https://github.com/DIRACGrid/DIRAC/
 
 Package license: GPL-3.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dirac-grid-feedstock/blob/master/LICENSE.txt)
 
-Summary: Distributed Infrastructure with Remote Agent Control
+Summary: DIRAC is an interware, meaning a software framework for distributed computing.
 
 Development: https://github.com/DIRACGrid/DIRAC/
 
