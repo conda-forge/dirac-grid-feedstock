@@ -125,7 +125,8 @@ test:
     - DIRAC
     - DIRAC.AccountingSystem
   commands:
-    - pip check
+    # Requires: https://github.com/conda-forge/sqlalchemy-feedstock/pull/64
+    # - pip check
     - dirac-accounting-decode-fileid --help
     - dirac-configure --help
     - dirac-info --help
