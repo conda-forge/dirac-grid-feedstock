@@ -11,7 +11,7 @@ source:
   sha256: 6b1dcd66dbda9ad7050a33622096fa108c08c2481c2c1e6d9bb61b91c2f34fc1
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
@@ -89,7 +89,9 @@ build:
     - dirac-stager-stage-files = DIRAC.StorageManagementSystem.scripts.dirac_stager_stage_files:main
     - dirac-production-runjoblocal = DIRAC.TransformationSystem.scripts.dirac_production_runjoblocal:main
     - dirac-wms-pilot-job-info = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_pilot_job_info:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - {{ PYTHON }} -m pip install . -vv
+    - ln -s "${PREFIX}/etc" "${SP_DIR}/etc"
 
 requirements:
   host:
@@ -125,8 +127,7 @@ test:
     - DIRAC
     - DIRAC.AccountingSystem
   commands:
-    # Requires: https://github.com/conda-forge/sqlalchemy-feedstock/pull/64
-    # - pip check
+    - pip check
     - dirac-accounting-decode-fileid --help
     - dirac-configure --help
     - dirac-info --help
