@@ -105,6 +105,7 @@ requirements:
     # Not yet updated for Python 3 
     # - fts3-rest
     - future
+    - importlib_resources
     - python-gfal2
     - m2crypto >=0.36
     - pexpect
