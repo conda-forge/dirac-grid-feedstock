@@ -97,9 +97,11 @@ requirements:
   host:
     - pip
     - python >=3.8
+    - setuptools-scm
   run:
     - boto3
     - botocore
+    - cachetools
     - certifi
     - diraccfg
     # Not yet updated for Python 3 
