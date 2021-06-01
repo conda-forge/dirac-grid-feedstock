@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7.2.7" %}
+{% set version = "7.2.8" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/DIRAC/DIRAC-{{ version }}.tar.gz
-  sha256: 661af2cde9420207f2cbb13defe151e036b68145555aefb85d6886478fdc1de2
+  sha256: f993d0af9930a86f1f317afcd30c0ac9cab815f6b3c6e3068bd963a24f2f4983
 
 build:
   number: 0
@@ -97,9 +97,11 @@ requirements:
   host:
     - pip
     - python >=3.8
+    - setuptools-scm
   run:
     - boto3
     - botocore
+    - cachetools
     - certifi
     - diraccfg
     # Not yet updated for Python 3 
