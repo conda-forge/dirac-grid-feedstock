@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7.2.10" %}
+{% set version = "7.2.12" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/DIRAC/DIRAC-{{ version }}.tar.gz
-  sha256: 6ec970f32b6750ecbafe08b221a834279e1e6e15c7801b7b426b9e8adeb0a736
+  sha256: 432dc8e37a2bd97cfb10117aae3c3356ee9dccf4bba48068df011305da27c8b4
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
