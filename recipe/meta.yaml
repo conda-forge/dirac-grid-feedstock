@@ -11,7 +11,7 @@ source:
   sha256: dc8f55746da65d851223146dda2675308fa179e4ba96e9557fd41e626e02502a
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
@@ -224,6 +224,7 @@ requirements:
     - six
     - sqlalchemy
     - subprocess32
+    - voms
 
 test:
   imports:
