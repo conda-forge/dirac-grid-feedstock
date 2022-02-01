@@ -1,5 +1,5 @@
 {% set name = "dirac-grid" %}
-{% set version = "7.3.16" %}
+{% set version = "7.3.17" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/D/DIRAC/DIRAC-{{ version }}.tar.gz
-  sha256: 9b2148c39d0366813168c684320d9cad7dfa79c016920bfc638412f3d9cc3617
+  sha256: 545fd2510d6f087dc67f7720dbaa8645ccd31681d2e5eca037330499d19d5ce4
 
 build:
   number: 0
