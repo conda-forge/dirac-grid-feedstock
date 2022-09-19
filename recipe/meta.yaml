@@ -208,6 +208,7 @@ requirements:
     - botocore
     - cachetools
     - certifi
+    - db12
     - diraccfg
     - dominate
     - fts3
