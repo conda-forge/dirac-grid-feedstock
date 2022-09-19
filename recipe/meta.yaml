@@ -35,6 +35,9 @@ build:
     - dirac-service = DIRAC.Core.scripts.dirac_service:main
     - dirac-setup-site = DIRAC.Core.scripts.dirac_setup_site:main
     - dirac-version = DIRAC.Core.scripts.dirac_version:main
+    - dirac-cert-convert = DIRAC.Core.scripts.dirac_cert_convert:main
+    - dirac-generate-cas = DIRAC.Core.scripts.dirac_generate_cas:main
+    - dirac-generate-crls = DIRAC.Core.scripts.dirac_generate_crls:main
     - tornado-start-CS = DIRAC.Core.Tornado.scripts.tornado_start_CS:main
     - tornado-start-all = DIRAC.Core.Tornado.scripts.tornado_start_all:main
     - dirac-admin-allow-se = DIRAC.DataManagementSystem.scripts.dirac_admin_allow_se:main
@@ -65,6 +68,8 @@ build:
     - dirac-dms-show-se-status = DIRAC.DataManagementSystem.scripts.dirac_dms_show_se_status:main
     - dirac-dms-user-lfns = DIRAC.DataManagementSystem.scripts.dirac_dms_user_lfns:main
     - dirac-dms-user-quota = DIRAC.DataManagementSystem.scripts.dirac_dms_user_quota:main
+    - dirac-login = DIRAC.FrameworkSystem.scripts.dirac_login:main
+    - dirac-logout = DIRAC.FrameworkSystem.scripts.dirac_logout:main
     - dirac-admin-get-CAs = DIRAC.FrameworkSystem.scripts.dirac_admin_get_CAs:main
     - dirac-admin-get-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_get_proxy:main
     - dirac-admin-proxy-upload = DIRAC.FrameworkSystem.scripts.dirac_admin_proxy_upload:main
@@ -74,7 +79,6 @@ build:
     - dirac-admin-users-with-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_users_with_proxy:main
     - dirac-install-component = DIRAC.FrameworkSystem.scripts.dirac_install_component:main
     - dirac-install-tornado-service = DIRAC.FrameworkSystem.scripts.dirac_install_tornado_service:main
-    - dirac-monitoring-get-components-status = DIRAC.FrameworkSystem.scripts.dirac_monitoring_get_components_status:main
     - dirac-myproxy-upload = DIRAC.FrameworkSystem.scripts.dirac_myproxy_upload:main
     - dirac-populate-component-db = DIRAC.FrameworkSystem.scripts.dirac_populate_component_db:main
     - dirac-proxy-destroy = DIRAC.FrameworkSystem.scripts.dirac_proxy_destroy:main
@@ -199,40 +203,41 @@ requirements:
     - python >=3.9
     - setuptools-scm
   run:
+    - authlib >=1.0.0.a2
     - boto3
     - botocore
     - cachetools
     - certifi
     - diraccfg
-    # Not yet updated for Python 3 
-    # - fts3-rest
+    - dominate
+    - fts3
     - future
     - importlib_resources
-    - python-gfal2
+    - importlib-metadata >=4.4
     - m2crypto >=0.36,!=0.38.0
     - pexpect
     - prompt-toolkit >=3
     - psutil
     - pyasn1
     - pyasn1-modules
+    - pyjwt
     - pyparsing
     - python >=3.9
     - python-dateutil
+    - python-gfal2
     - pytz
     - requests
+    - rucio-clients
     - setuptools
-    - six
     - sqlalchemy
-    - subprocess32
+    - typing-extensions >=4.3.0
     - voms
 
 test:
   imports:
     - DIRAC
-    - DIRAC.AccountingSystem
   commands:
-    # Requires fts3 which isn't released with Python 3 compat :(
-    # - pip check
+    - pip check
     - dirac-accounting-decode-fileid --help
     - dirac-admin-accounting-cli --help
     - dirac-admin-add-resources --help
@@ -254,6 +259,9 @@ test:
     - dirac-service --help
     - dirac-setup-site --help
     - dirac-version --help
+    - dirac-cert-convert --help
+    - dirac-generate-cas --help
+    - dirac-generate-crls --help
     # - tornado-start-CS --help
     # - tornado-start-all --help
     - dirac-admin-allow-se --help
@@ -284,6 +292,8 @@ test:
     - dirac-dms-show-se-status --help
     - dirac-dms-user-lfns --help
     - dirac-dms-user-quota --help
+    - dirac-login --help
+    - dirac-logout --help
     - dirac-admin-get-CAs --help
     - dirac-admin-get-proxy --help
     - dirac-admin-proxy-upload --help
@@ -293,7 +303,6 @@ test:
     - dirac-admin-users-with-proxy --help
     # - dirac-install-component --help
     # - dirac-install-tornado-service --help
-    - dirac-monitoring-get-components-status --help
     - dirac-myproxy-upload --help
     - dirac-populate-component-db --help
     - dirac-proxy-destroy --help
