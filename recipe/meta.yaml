@@ -11,7 +11,7 @@ source:
   sha256: fd6358c375969dce0d8ff13031d6d4a82f5612420a266caa121858de6b9eb8b4
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
@@ -215,7 +215,7 @@ requirements:
     - future
     - importlib_resources
     - importlib-metadata >=4.4
-    - m2crypto >=0.36,!=0.38.0
+    - m2crypto >=0.38
     - pexpect
     - prompt-toolkit >=3
     - psutil
