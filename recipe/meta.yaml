@@ -217,6 +217,7 @@ requirements:
     - importlib-metadata >=4.4
     - m2crypto >=0.38
     - opensearch-dsl
+    - packaging
     - pexpect
     - prompt-toolkit >=3
     - psutil
