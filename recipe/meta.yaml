@@ -144,7 +144,32 @@ build:
     - dirac-wms-job-submit = DIRAC.Interfaces.scripts.dirac_wms_job_submit:main
     - dirac-wms-jobs-select-output-search = DIRAC.Interfaces.scripts.dirac_wms_jobs_select_output_search:main
     - dirac-wms-select-jobs = DIRAC.Interfaces.scripts.dirac_wms_select_jobs:main
+    - dcd = DIRAC.Interfaces.scripts.dcd:main
+    - dchgrp = DIRAC.Interfaces.scripts.dchgrp:main
+    - dchmod = DIRAC.Interfaces.scripts.dchmod:main
+    - dchown = DIRAC.Interfaces.scripts.dchown:main
+    - dconfig = DIRAC.Interfaces.scripts.dconfig:main
+    - dfind = DIRAC.Interfaces.scripts.dfind:main
+    - dget = DIRAC.Interfaces.scripts.dget:main
+    - dgetenv = DIRAC.Interfaces.scripts.dgetenv:main
+    - dinit = DIRAC.Interfaces.scripts.dinit:main
+    - dkill = DIRAC.Interfaces.scripts.dkill:main
+    - dlogging = DIRAC.Interfaces.scripts.dlogging:main
+    - dls = DIRAC.Interfaces.scripts.dls:main
+    - dmeta = DIRAC.Interfaces.scripts.dmeta:main
+    - dmkdir = DIRAC.Interfaces.scripts.dmkdir:main
+    - doutput = DIRAC.Interfaces.scripts.doutput:main
+    - dput = DIRAC.Interfaces.scripts.dput:main
+    - dpwd = DIRAC.Interfaces.scripts.dpwd:main
+    - drepl = DIRAC.Interfaces.scripts.drepl:main
+    - dreplicas = DIRAC.Interfaces.scripts.dreplicas:main
+    - drm = DIRAC.Interfaces.scripts.drm:main
+    - drmdir = DIRAC.Interfaces.scripts.drmdir:main
+    - dsize = DIRAC.Interfaces.scripts.dsize:main
+    - dstat = DIRAC.Interfaces.scripts.dstat:main
+    - dsub = DIRAC.Interfaces.scripts.dsub:main
     - dirac-prod-add-trans = DIRAC.ProductionSystem.scripts.dirac_prod_add_trans:main
+    - dirac-prod-complete = DIRAC.ProductionSystem.scripts.dirac_prod_complete:main
     - dirac-prod-clean = DIRAC.ProductionSystem.scripts.dirac_prod_clean:main
     - dirac-prod-delete = DIRAC.ProductionSystem.scripts.dirac_prod_delete:main
     - dirac-prod-get = DIRAC.ProductionSystem.scripts.dirac_prod_get:main
@@ -176,10 +201,13 @@ build:
     - dirac-transformation-clean = DIRAC.TransformationSystem.scripts.dirac_transformation_clean:main
     - dirac-transformation-cli = DIRAC.TransformationSystem.scripts.dirac_transformation_cli:main
     - dirac-transformation-get-files = DIRAC.TransformationSystem.scripts.dirac_transformation_get_files:main
+    - dirac-transformation-information = DIRAC.TransformationSystem.scripts.dirac_transformation_information:main
     - dirac-transformation-recover-data = DIRAC.TransformationSystem.scripts.dirac_transformation_recover_data:main
     - dirac-transformation-remove-output = DIRAC.TransformationSystem.scripts.dirac_transformation_remove_output:main
     - dirac-transformation-replication = DIRAC.TransformationSystem.scripts.dirac_transformation_replication:main
     - dirac-transformation-verify-outputdata = DIRAC.TransformationSystem.scripts.dirac_transformation_verify_outputdata:main
+    - dirac-transformation-update-derived = DIRAC.TransformationSystem.scripts.dirac_transformation_update_derived:main
+    - dirac-admin-add-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_add_pilot:main
     - dirac-admin-kill-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_kill_pilot:main
     - dirac-admin-pilot-logging-info = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_pilot_logging_info:main
     - dirac-admin-show-task-queues = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_show_task_queues:main
@@ -195,39 +223,37 @@ build:
     - dirac-wms-get-wn-parameters = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn_parameters:main
     - dirac-wms-match = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_match:main
     - dirac-wms-pilot-job-info = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_pilot_job_info:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - pip
     - python >=3.9
-    - setuptools-scm
+    - setuptools >=42
+    - wheel
+    - setuptools-scm >=3.4
+    - pip
   run:
-    - authlib >=1.0.0.a2
+    - python >=3.9
     - boto3
     - botocore
     - cachetools
     - certifi
-    - db12
+    - cwltool
     - diraccfg
-    - dominate
+    - db12
     - fts3
-    - future
-    - importlib_resources
+    - gfal2-python
     - importlib-metadata >=4.4
-    - m2crypto >=0.38
-    - opensearch-dsl
+    - importlib-resources
+    - m2crypto >=0.36
     - packaging
     - pexpect
     - prompt-toolkit >=3
     - psutil
     - pyasn1
     - pyasn1-modules
-    - pyjwt
     - pyparsing
-    - python >=3.9
     - python-dateutil
-    - python-gfal2
     - pytz
     - requests
     - rucio-clients
@@ -235,6 +261,9 @@ requirements:
     - sqlalchemy
     - typing-extensions >=4.3.0
     - voms
+    - authlib >=1.0.0.a2
+    - pyjwt
+    - dominate
 
 test:
   imports:
@@ -371,7 +400,32 @@ test:
     - dirac-wms-job-submit --help
     - dirac-wms-jobs-select-output-search --help
     - dirac-wms-select-jobs --help
+    - dcd --help
+    - dchgrp --help
+    - dchmod --help
+    - dchown --help
+    - dconfig --help
+    - dfind --help
+    - dget --help
+    - dgetenv --help
+    - dinit --help
+    - dkill --help
+    - dlogging --help
+    - dls --help
+    - dmeta --help
+    - dmkdir --help
+    - doutput --help
+    - dput --help
+    - dpwd --help
+    - drepl --help
+    - dreplicas --help
+    - drm --help
+    - drmdir --help
+    - dsize --help
+    - dstat --help
+    - dsub --help
     - dirac-prod-add-trans --help
+    - dirac-prod-complete --help
     - dirac-prod-clean --help
     - dirac-prod-delete --help
     - dirac-prod-get --help
@@ -403,10 +457,13 @@ test:
     - dirac-transformation-clean --help
     - dirac-transformation-cli --help
     - dirac-transformation-get-files --help
+    - dirac-transformation-information --help
     - dirac-transformation-recover-data --help
     - dirac-transformation-remove-output --help
     - dirac-transformation-replication --help
     - dirac-transformation-verify-outputdata --help
+    - dirac-transformation-update-derived --help
+    - dirac-admin-add-pilot --help
     - dirac-admin-kill-pilot --help
     - dirac-admin-pilot-logging-info --help
     - dirac-admin-show-task-queues --help
