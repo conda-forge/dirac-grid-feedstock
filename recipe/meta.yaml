@@ -242,7 +242,7 @@ requirements:
     - diraccfg
     - db12
     - fts3
-    - gfal2-python
+    - python-gfal2
     - importlib-metadata >=4.4
     - importlib-resources
     - m2crypto >=0.36
