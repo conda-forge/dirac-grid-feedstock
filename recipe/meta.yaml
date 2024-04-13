@@ -423,7 +423,8 @@ test:
     - drmdir --help
     - dsize --help
     - dstat --help
-    - dsub --help
+    # https://github.com/DIRACGrid/DIRAC/issues/7567
+    # - dsub --help
     - dirac-prod-add-trans --help
     - dirac-prod-complete --help
     - dirac-prod-clean --help
@@ -451,7 +452,8 @@ test:
     - dirac-stager-monitor-requests --help
     - dirac-stager-show-stats --help
     - dirac-stager-stage-files --help
-    - dirac-production-runjoblocal --help
+    # https://github.com/DIRACGrid/DIRAC/issues/7567
+    # - dirac-production-runjoblocal --help
     - dirac-transformation-add-files --help
     - dirac-transformation-archive --help
     - dirac-transformation-clean --help
