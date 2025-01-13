@@ -11,7 +11,7 @@ source:
   sha256: 9633bcc7a07ac393c07d6d964d437b2ebaf7436f271a468668b9e93ebbf3310a
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
@@ -227,13 +227,13 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=42
     - wheel
     - setuptools-scm >=3.4
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - boto3
     - botocore
     - cachetools
@@ -483,6 +483,7 @@ test:
     - dirac-wms-pilot-job-info --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/DIRACGrid/DIRAC/
