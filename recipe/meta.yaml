@@ -1,5 +1,6 @@
 {% set name = "dirac-grid" %}
 {% set version = "9.0.0" %}
+{% set python_min = "3.11" %}
 
 
 package:
