@@ -1,5 +1,5 @@
 context:
-  version: 8.0.77
+  version: 9.0.11
 
 package:
   name: dirac-grid
@@ -7,7 +7,7 @@ package:
 
 source:
 - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-  sha256: 029a4beaa70111f99e4f1fa6004efff44815ff13c1a63dc200d4bdae3b983900
+  sha256: bbda57ad7483dbbfe3ad3f897b1a58f43b81da7259ae59b946663de62f62138e
 
 build:
   number: 0
@@ -23,7 +23,6 @@ build:
       - dfind = DIRAC.Interfaces.scripts.dfind:main
       - dget = DIRAC.Interfaces.scripts.dget:main
       - dgetenv = DIRAC.Interfaces.scripts.dgetenv:main
-      - dinit = DIRAC.Interfaces.scripts.dinit:main
       - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
       - dirac-admin-accounting-cli = DIRAC.AccountingSystem.scripts.dirac_admin_accounting_cli:main
       - dirac-admin-add-group = DIRAC.Interfaces.scripts.dirac_admin_add_group:main
@@ -53,11 +52,9 @@ build:
       - dirac-admin-list-hosts = DIRAC.Interfaces.scripts.dirac_admin_list_hosts:main
       - dirac-admin-list-users = DIRAC.Interfaces.scripts.dirac_admin_list_users:main
       - dirac-admin-modify-user = DIRAC.Interfaces.scripts.dirac_admin_modify_user:main
-      - dirac-admin-pilot-logging-info = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_pilot_logging_info:main
       - dirac-admin-pilot-summary = DIRAC.Interfaces.scripts.dirac_admin_pilot_summary:main
       - dirac-admin-proxy-upload = DIRAC.FrameworkSystem.scripts.dirac_admin_proxy_upload:main
       - dirac-admin-reset-job = DIRAC.Interfaces.scripts.dirac_admin_reset_job:main
-      - dirac-admin-service-ports = DIRAC.Interfaces.scripts.dirac_admin_service_ports:main
       - dirac-admin-set-site-protocols = DIRAC.Interfaces.scripts.dirac_admin_set_site_protocols:main
       - dirac-admin-show-task-queues = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_show_task_queues:main
       - dirac-admin-site-info = DIRAC.Interfaces.scripts.dirac_admin_site_info:main
@@ -78,6 +75,7 @@ build:
       - dirac-configuration-dump-local-cache = DIRAC.ConfigurationSystem.scripts.dirac_configuration_dump_local_cache:main
       - dirac-configuration-shell = DIRAC.ConfigurationSystem.scripts.dirac_configuration_shell:main
       - dirac-configure = DIRAC.Core.scripts.dirac_configure:main
+      - dirac-diracx-whoami = DIRAC.FrameworkSystem.scripts.dirac_diracx_whoami:main
       - dirac-dms-add-file = DIRAC.DataManagementSystem.scripts.dirac_dms_add_file:main
       - dirac-dms-catalog-metadata = DIRAC.DataManagementSystem.scripts.dirac_dms_catalog_metadata:main
       - dirac-dms-change-replica-status = DIRAC.DataManagementSystem.scripts.dirac_dms_change_replica_status:main
@@ -118,14 +116,11 @@ build:
       - dirac-info = DIRAC.Core.scripts.dirac_info:main
       - dirac-install-component = DIRAC.FrameworkSystem.scripts.dirac_install_component:main
       - dirac-install-db = DIRAC.Core.scripts.dirac_install_db:main
-      - dirac-install-tornado-service = DIRAC.FrameworkSystem.scripts.dirac_install_tornado_service:main
       - dirac-install-web-portal = DIRAC.Core.scripts.dirac_install_web_portal:main
       - dirac-jobexec = DIRAC.WorkloadManagementSystem.scripts.dirac_jobexec:main
       - dirac-login = DIRAC.FrameworkSystem.scripts.dirac_login:main
       - dirac-logout = DIRAC.FrameworkSystem.scripts.dirac_logout:main
-      - dirac-myproxy-upload = DIRAC.FrameworkSystem.scripts.dirac_myproxy_upload:main
       - dirac-platform = DIRAC.Core.scripts.dirac_platform:main
-      - dirac-populate-component-db = DIRAC.FrameworkSystem.scripts.dirac_populate_component_db:main
       - dirac-prod-add-trans = DIRAC.ProductionSystem.scripts.dirac_prod_add_trans:main
       - dirac-prod-clean = DIRAC.ProductionSystem.scripts.dirac_prod_clean:main
       - dirac-prod-complete = DIRAC.ProductionSystem.scripts.dirac_prod_complete:main
@@ -141,7 +136,6 @@ build:
       - dirac-proxy-get-uploaded-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_get_uploaded_info:main
       - dirac-proxy-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_info:main
       - dirac-proxy-init = DIRAC.FrameworkSystem.scripts.dirac_proxy_init:main
-      - dirac-repo-monitor = DIRAC.Interfaces.scripts.dirac_repo_monitor:main
       - dirac-resource-get-parameters = DIRAC.Resources.scripts.dirac_resource_get_parameters:main
       - dirac-resource-info = DIRAC.Resources.scripts.dirac_resource_info:main
       - dirac-restart-component = DIRAC.FrameworkSystem.scripts.dirac_restart_component:main
@@ -167,13 +161,10 @@ build:
       - dirac-stop-component = DIRAC.FrameworkSystem.scripts.dirac_stop_component:main
       - dirac-sys-sendmail = DIRAC.FrameworkSystem.scripts.dirac_sys_sendmail:main
       - dirac-transformation-add-files = DIRAC.TransformationSystem.scripts.dirac_transformation_add_files:main
-      - dirac-transformation-archive = DIRAC.TransformationSystem.scripts.dirac_transformation_archive:main
-      - dirac-transformation-clean = DIRAC.TransformationSystem.scripts.dirac_transformation_clean:main
       - dirac-transformation-cli = DIRAC.TransformationSystem.scripts.dirac_transformation_cli:main
       - dirac-transformation-get-files = DIRAC.TransformationSystem.scripts.dirac_transformation_get_files:main
       - dirac-transformation-information = DIRAC.TransformationSystem.scripts.dirac_transformation_information:main
       - dirac-transformation-recover-data = DIRAC.TransformationSystem.scripts.dirac_transformation_recover_data:main
-      - dirac-transformation-remove-output = DIRAC.TransformationSystem.scripts.dirac_transformation_remove_output:main
       - dirac-transformation-replication = DIRAC.TransformationSystem.scripts.dirac_transformation_replication:main
       - dirac-transformation-update-derived = DIRAC.TransformationSystem.scripts.dirac_transformation_update_derived:main
       - dirac-transformation-verify-outputdata = DIRAC.TransformationSystem.scripts.dirac_transformation_verify_outputdata:main
@@ -181,14 +172,8 @@ build:
       - dirac-utils-file-adler = DIRAC.Interfaces.scripts.dirac_utils_file_adler:main
       - dirac-utils-file-md5 = DIRAC.Interfaces.scripts.dirac_utils_file_md5:main
       - dirac-version = DIRAC.Core.scripts.dirac_version:main
-      - dirac-vm-cli = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_cli:main
-      - dirac-vm-endpoint-status = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_endpoint_status:main
-      - dirac-vm-get-pilot-output = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_get_pilot_output:main
-      - dirac-vm-instance-stop = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_instance_stop:main
       - dirac-wms-cpu-normalization = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_cpu_normalization:main
-      - dirac-wms-get-normalized-queue-length = DIRAC.Interfaces.scripts.dirac_wms_get_normalized_queue_length:main
       - dirac-wms-get-queue-cpu-time = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_queue_cpu_time:main
-      - dirac-wms-get-queue-normalization = DIRAC.Interfaces.scripts.dirac_wms_get_queue_normalization:main
       - dirac-wms-get-wn = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn:main
       - dirac-wms-get-wn-parameters = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn_parameters:main
       - dirac-wms-job-attributes = DIRAC.Interfaces.scripts.dirac_wms_job_attributes:main
@@ -228,19 +213,23 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python >=3.11
     - setuptools >=42
     - wheel
     - setuptools-scm >=3.4
     - pip
   run:
-    - python >=3.9
-    - boto3
-    - botocore
+    - python >=3.11
+    - boto3 >=1.35
+    - botocore >=1.35
     - cachetools
     - certifi
     - cwltool
     - diraccfg
+    - diraccommon ==v${{ version }}
+    - diracx-client >=v0.0.1
+    - diracx-core >=v0.0.1
+    - diracx-cli >=v0.0.1
     - db12
     - fts3
     - python-gfal2
@@ -253,18 +242,19 @@ requirements:
     - psutil
     - pyasn1
     - pyasn1-modules
+    - pydantic >=2.4
     - pyparsing
     - python-dateutil
     - pytz
     - requests
     - rucio-clients >=34.4.2
-    - setuptools
     - sqlalchemy
     - typing_extensions >=4.3.0
     - voms
     - authlib >=1.0.0.a2
     - pyjwt
     - dominate
+    - zstandard
 
 tests:
 - python:
