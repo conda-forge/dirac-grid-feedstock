@@ -3,11 +3,40 @@ About dirac-grid-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dirac-grid-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/DIRACGrid/DIRAC/
+
+About dirac-grid
+----------------
+
+Home: https://diracgrid.org/
 
 Package license: GPL-3.0-or-later
 
 Summary: DIRAC is an interware, meaning a software framework for distributed computing.
+
+Development: https://github.com/DIRACGrid/DIRAC/
+
+Documentation: https://dirac.readthedocs.io/
+
+DIRAC (Distributed Infrastructure with Remote Agent Control) INTERWARE is a
+software framework for distributed computing providing a complete solution
+to one or more user community requiring access to distributed resources.
+DIRAC builds a layer between the users and the resources offering a common
+interface to a number of heterogeneous providers, integrating them in a
+seamless manner, providing interoperability, at the same time as an
+optimized, transparent and reliable usage of the resources.
+
+DIRAC has been started by the LHCb collaboration who still maintains it. It
+is now used by several communities (AKA VO=Virtual Organizations) for their
+distributed computing workflows.
+
+About diraccommon
+-----------------
+
+Home: https://github.com/DIRACGrid/DIRAC/tree/integration/dirac-common
+
+Package license: GPL-3.0-or-later
+
+Summary: Stateless utilities extracted from DIRAC for use by DiracX and other projects
 
 Development: https://github.com/DIRACGrid/DIRAC/
 
@@ -44,6 +73,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-dirac--grid-green.svg)](https://anaconda.org/conda-forge/dirac-grid) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dirac-grid.svg)](https://anaconda.org/conda-forge/dirac-grid) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dirac-grid.svg)](https://anaconda.org/conda-forge/dirac-grid) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dirac-grid.svg)](https://anaconda.org/conda-forge/dirac-grid) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-diraccommon-green.svg)](https://anaconda.org/conda-forge/diraccommon) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/diraccommon.svg)](https://anaconda.org/conda-forge/diraccommon) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/diraccommon.svg)](https://anaconda.org/conda-forge/diraccommon) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/diraccommon.svg)](https://anaconda.org/conda-forge/diraccommon) |
 
 Installing dirac-grid
 =====================
@@ -55,16 +85,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dirac-grid` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `dirac-grid, diraccommon` can be installed with `conda`:
 
 ```
-conda install dirac-grid
+conda install dirac-grid diraccommon
 ```
 
 or with `mamba`:
 
 ```
-mamba install dirac-grid
+mamba install dirac-grid diraccommon
 ```
 
 It is possible to list all of the versions of `dirac-grid` available on your platform with `conda`:

@@ -1,276 +1,316 @@
 context:
-  version: 8.0.77
+  version: 9.0.11
+  python_min: 3.11
 
-package:
+recipe:
   name: dirac-grid
   version: ${{ version }}
 
-source:
-- url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-  sha256: 029a4beaa70111f99e4f1fa6004efff44815ff13c1a63dc200d4bdae3b983900
-
 build:
-  number: 0
-  noarch: python
-  script: ${{ PYTHON }} -m pip install .
-  python:
-    entry_points:
-      - dcd = DIRAC.Interfaces.scripts.dcd:main
-      - dchgrp = DIRAC.Interfaces.scripts.dchgrp:main
-      - dchmod = DIRAC.Interfaces.scripts.dchmod:main
-      - dchown = DIRAC.Interfaces.scripts.dchown:main
-      - dconfig = DIRAC.Interfaces.scripts.dconfig:main
-      - dfind = DIRAC.Interfaces.scripts.dfind:main
-      - dget = DIRAC.Interfaces.scripts.dget:main
-      - dgetenv = DIRAC.Interfaces.scripts.dgetenv:main
-      - dinit = DIRAC.Interfaces.scripts.dinit:main
-      - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
-      - dirac-admin-accounting-cli = DIRAC.AccountingSystem.scripts.dirac_admin_accounting_cli:main
-      - dirac-admin-add-group = DIRAC.Interfaces.scripts.dirac_admin_add_group:main
-      - dirac-admin-add-host = DIRAC.Interfaces.scripts.dirac_admin_add_host:main
-      - dirac-admin-add-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_add_pilot:main
-      - dirac-admin-add-resources = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_resources:main
-      - dirac-admin-add-shifter = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_shifter:main
-      - dirac-admin-add-site = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_site:main
-      - dirac-admin-add-user = DIRAC.Interfaces.scripts.dirac_admin_add_user:main
-      - dirac-admin-allow-se = DIRAC.DataManagementSystem.scripts.dirac_admin_allow_se:main
-      - dirac-admin-allow-site = DIRAC.Interfaces.scripts.dirac_admin_allow_site:main
-      - dirac-admin-ban-se = DIRAC.DataManagementSystem.scripts.dirac_admin_ban_se:main
-      - dirac-admin-ban-site = DIRAC.Interfaces.scripts.dirac_admin_ban_site:main
-      - dirac-admin-ce-info = DIRAC.Interfaces.scripts.dirac_admin_ce_info:main
-      - dirac-admin-check-config-options = DIRAC.ConfigurationSystem.scripts.dirac_admin_check_config_options:main
-      - dirac-admin-delete-user = DIRAC.Interfaces.scripts.dirac_admin_delete_user:main
-      - dirac-admin-get-CAs = DIRAC.FrameworkSystem.scripts.dirac_admin_get_CAs:main
-      - dirac-admin-get-banned-sites = DIRAC.Interfaces.scripts.dirac_admin_get_banned_sites:main
-      - dirac-admin-get-job-pilot-output = DIRAC.Interfaces.scripts.dirac_admin_get_job_pilot_output:main
-      - dirac-admin-get-job-pilots = DIRAC.Interfaces.scripts.dirac_admin_get_job_pilots:main
-      - dirac-admin-get-pilot-info = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_info:main
-      - dirac-admin-get-pilot-logging-info = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_logging_info:main
-      - dirac-admin-get-pilot-output = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_output:main
-      - dirac-admin-get-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_get_proxy:main
-      - dirac-admin-get-site-mask = DIRAC.Interfaces.scripts.dirac_admin_get_site_mask:main
-      - dirac-admin-kill-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_kill_pilot:main
-      - dirac-admin-list-hosts = DIRAC.Interfaces.scripts.dirac_admin_list_hosts:main
-      - dirac-admin-list-users = DIRAC.Interfaces.scripts.dirac_admin_list_users:main
-      - dirac-admin-modify-user = DIRAC.Interfaces.scripts.dirac_admin_modify_user:main
-      - dirac-admin-pilot-logging-info = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_pilot_logging_info:main
-      - dirac-admin-pilot-summary = DIRAC.Interfaces.scripts.dirac_admin_pilot_summary:main
-      - dirac-admin-proxy-upload = DIRAC.FrameworkSystem.scripts.dirac_admin_proxy_upload:main
-      - dirac-admin-reset-job = DIRAC.Interfaces.scripts.dirac_admin_reset_job:main
-      - dirac-admin-service-ports = DIRAC.Interfaces.scripts.dirac_admin_service_ports:main
-      - dirac-admin-set-site-protocols = DIRAC.Interfaces.scripts.dirac_admin_set_site_protocols:main
-      - dirac-admin-show-task-queues = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_show_task_queues:main
-      - dirac-admin-site-info = DIRAC.Interfaces.scripts.dirac_admin_site_info:main
-      - dirac-admin-site-mask-logging = DIRAC.Interfaces.scripts.dirac_admin_site_mask_logging:main
-      - dirac-admin-sort-cs-sites = DIRAC.ConfigurationSystem.scripts.dirac_admin_sort_cs_sites:main
-      - dirac-admin-sync-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_sync_pilot:main
-      - dirac-admin-sync-users-from-file = DIRAC.Interfaces.scripts.dirac_admin_sync_users_from_file:main
-      - dirac-admin-sysadmin-cli = DIRAC.FrameworkSystem.scripts.dirac_admin_sysadmin_cli:main
-      - dirac-admin-update-instance = DIRAC.FrameworkSystem.scripts.dirac_admin_update_instance:main
-      - dirac-admin-update-pilot = DIRAC.FrameworkSystem.scripts.dirac_admin_update_pilot:main
-      - dirac-admin-user-quota = DIRAC.DataManagementSystem.scripts.dirac_admin_user_quota:main
-      - dirac-admin-users-with-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_users_with_proxy:main
-      - dirac-admin-voms-sync = DIRAC.ConfigurationSystem.scripts.dirac_admin_voms_sync:main
-      - dirac-agent = DIRAC.Core.scripts.dirac_agent:main
-      - dirac-apptainer-exec = DIRAC.Core.scripts.dirac_apptainer_exec:main
-      - dirac-cert-convert = DIRAC.Core.scripts.dirac_cert_convert:main
-      - dirac-configuration-cli = DIRAC.ConfigurationSystem.scripts.dirac_configuration_cli:main
-      - dirac-configuration-dump-local-cache = DIRAC.ConfigurationSystem.scripts.dirac_configuration_dump_local_cache:main
-      - dirac-configuration-shell = DIRAC.ConfigurationSystem.scripts.dirac_configuration_shell:main
-      - dirac-configure = DIRAC.Core.scripts.dirac_configure:main
-      - dirac-dms-add-file = DIRAC.DataManagementSystem.scripts.dirac_dms_add_file:main
-      - dirac-dms-catalog-metadata = DIRAC.DataManagementSystem.scripts.dirac_dms_catalog_metadata:main
-      - dirac-dms-change-replica-status = DIRAC.DataManagementSystem.scripts.dirac_dms_change_replica_status:main
-      - dirac-dms-clean-directory = DIRAC.DataManagementSystem.scripts.dirac_dms_clean_directory:main
-      - dirac-dms-create-archive-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_archive_request:main
-      - dirac-dms-create-moving-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_moving_request:main
-      - dirac-dms-create-removal-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_removal_request:main
-      - dirac-dms-data-size = DIRAC.DataManagementSystem.scripts.dirac_dms_data_size:main
-      - dirac-dms-directory-sync = DIRAC.DataManagementSystem.scripts.dirac_dms_directory_sync:main
-      - dirac-dms-filecatalog-cli = DIRAC.DataManagementSystem.scripts.dirac_dms_filecatalog_cli:main
-      - dirac-dms-find-lfns = DIRAC.DataManagementSystem.scripts.dirac_dms_find_lfns:main
-      - dirac-dms-get-file = DIRAC.Interfaces.scripts.dirac_dms_get_file:main
-      - dirac-dms-lfn-accessURL = DIRAC.Interfaces.scripts.dirac_dms_lfn_accessURL:main
-      - dirac-dms-lfn-metadata = DIRAC.Interfaces.scripts.dirac_dms_lfn_metadata:main
-      - dirac-dms-lfn-replicas = DIRAC.Interfaces.scripts.dirac_dms_lfn_replicas:main
-      - dirac-dms-move-replica-request = DIRAC.DataManagementSystem.scripts.dirac_dms_move_replica_request:main
-      - dirac-dms-pfn-accessURL = DIRAC.Interfaces.scripts.dirac_dms_pfn_accessURL:main
-      - dirac-dms-pfn-metadata = DIRAC.Interfaces.scripts.dirac_dms_pfn_metadata:main
-      - dirac-dms-protocol-matrix = DIRAC.DataManagementSystem.scripts.dirac_dms_protocol_matrix:main
-      - dirac-dms-put-and-register-request = DIRAC.DataManagementSystem.scripts.dirac_dms_put_and_register_request:main
-      - dirac-dms-remove-catalog-files = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_catalog_files:main
-      - dirac-dms-remove-catalog-replicas = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_catalog_replicas:main
-      - dirac-dms-remove-files = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_files:main
-      - dirac-dms-remove-replicas = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_replicas:main
-      - dirac-dms-replica-metadata = DIRAC.DataManagementSystem.scripts.dirac_dms_replica_metadata:main
-      - dirac-dms-replicate-and-register-request = DIRAC.DataManagementSystem.scripts.dirac_dms_replicate_and_register_request:main
-      - dirac-dms-replicate-lfn = DIRAC.Interfaces.scripts.dirac_dms_replicate_lfn:main
-      - dirac-dms-resolve-guid = DIRAC.DataManagementSystem.scripts.dirac_dms_resolve_guid:main
-      - dirac-dms-set-replica-status = DIRAC.DataManagementSystem.scripts.dirac_dms_set_replica_status:main
-      - dirac-dms-show-se-status = DIRAC.DataManagementSystem.scripts.dirac_dms_show_se_status:main
-      - dirac-dms-user-lfns = DIRAC.DataManagementSystem.scripts.dirac_dms_user_lfns:main
-      - dirac-dms-user-quota = DIRAC.DataManagementSystem.scripts.dirac_dms_user_quota:main
-      - dirac-executor = DIRAC.Core.scripts.dirac_executor:main
-      - dirac-framework-ping-service = DIRAC.Interfaces.scripts.dirac_framework_ping_service:main
-      - dirac-framework-self-ping = DIRAC.Interfaces.scripts.dirac_framework_self_ping:main
-      - dirac-generate-cas = DIRAC.Core.scripts.dirac_generate_cas:main
-      - dirac-generate-crls = DIRAC.Core.scripts.dirac_generate_crls:main
-      - dirac-info = DIRAC.Core.scripts.dirac_info:main
-      - dirac-install-component = DIRAC.FrameworkSystem.scripts.dirac_install_component:main
-      - dirac-install-db = DIRAC.Core.scripts.dirac_install_db:main
-      - dirac-install-tornado-service = DIRAC.FrameworkSystem.scripts.dirac_install_tornado_service:main
-      - dirac-install-web-portal = DIRAC.Core.scripts.dirac_install_web_portal:main
-      - dirac-jobexec = DIRAC.WorkloadManagementSystem.scripts.dirac_jobexec:main
-      - dirac-login = DIRAC.FrameworkSystem.scripts.dirac_login:main
-      - dirac-logout = DIRAC.FrameworkSystem.scripts.dirac_logout:main
-      - dirac-myproxy-upload = DIRAC.FrameworkSystem.scripts.dirac_myproxy_upload:main
-      - dirac-platform = DIRAC.Core.scripts.dirac_platform:main
-      - dirac-populate-component-db = DIRAC.FrameworkSystem.scripts.dirac_populate_component_db:main
-      - dirac-prod-add-trans = DIRAC.ProductionSystem.scripts.dirac_prod_add_trans:main
-      - dirac-prod-clean = DIRAC.ProductionSystem.scripts.dirac_prod_clean:main
-      - dirac-prod-complete = DIRAC.ProductionSystem.scripts.dirac_prod_complete:main
-      - dirac-prod-delete = DIRAC.ProductionSystem.scripts.dirac_prod_delete:main
-      - dirac-prod-get = DIRAC.ProductionSystem.scripts.dirac_prod_get:main
-      - dirac-prod-get-all = DIRAC.ProductionSystem.scripts.dirac_prod_get_all:main
-      - dirac-prod-get-description = DIRAC.ProductionSystem.scripts.dirac_prod_get_description:main
-      - dirac-prod-get-trans = DIRAC.ProductionSystem.scripts.dirac_prod_get_trans:main
-      - dirac-prod-start = DIRAC.ProductionSystem.scripts.dirac_prod_start:main
-      - dirac-prod-stop = DIRAC.ProductionSystem.scripts.dirac_prod_stop:main
-      - dirac-production-runjoblocal = DIRAC.TransformationSystem.scripts.dirac_production_runjoblocal:main
-      - dirac-proxy-destroy = DIRAC.FrameworkSystem.scripts.dirac_proxy_destroy:main
-      - dirac-proxy-get-uploaded-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_get_uploaded_info:main
-      - dirac-proxy-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_info:main
-      - dirac-proxy-init = DIRAC.FrameworkSystem.scripts.dirac_proxy_init:main
-      - dirac-repo-monitor = DIRAC.Interfaces.scripts.dirac_repo_monitor:main
-      - dirac-resource-get-parameters = DIRAC.Resources.scripts.dirac_resource_get_parameters:main
-      - dirac-resource-info = DIRAC.Resources.scripts.dirac_resource_info:main
-      - dirac-restart-component = DIRAC.FrameworkSystem.scripts.dirac_restart_component:main
-      - dirac-rms-list-req-cache = DIRAC.RequestManagementSystem.scripts.dirac_rms_list_req_cache:main
-      - dirac-rms-reqdb-summary = DIRAC.RequestManagementSystem.scripts.dirac_rms_reqdb_summary:main
-      - dirac-rms-request = DIRAC.RequestManagementSystem.scripts.dirac_rms_request:main
-      - dirac-rss-list-status = DIRAC.ResourceStatusSystem.scripts.dirac_rss_list_status:main
-      - dirac-rss-query-db = DIRAC.ResourceStatusSystem.scripts.dirac_rss_query_db:main
-      - dirac-rss-query-dtcache = DIRAC.ResourceStatusSystem.scripts.dirac_rss_query_dtcache:main
-      - dirac-rss-set-status = DIRAC.ResourceStatusSystem.scripts.dirac_rss_set_status:main
-      - dirac-rss-set-token = DIRAC.ResourceStatusSystem.scripts.dirac_rss_set_token:main
-      - dirac-rss-sync = DIRAC.ResourceStatusSystem.scripts.dirac_rss_sync:main
-      - dirac-service = DIRAC.Core.scripts.dirac_service:main
-      - dirac-setup-site = DIRAC.Core.scripts.dirac_setup_site:main
-      - dirac-stager-monitor-file = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_file:main
-      - dirac-stager-monitor-jobs = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_jobs:main
-      - dirac-stager-monitor-request = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_request:main
-      - dirac-stager-monitor-requests = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_requests:main
-      - dirac-stager-show-stats = DIRAC.StorageManagementSystem.scripts.dirac_stager_show_stats:main
-      - dirac-stager-stage-files = DIRAC.StorageManagementSystem.scripts.dirac_stager_stage_files:main
-      - dirac-start-component = DIRAC.FrameworkSystem.scripts.dirac_start_component:main
-      - dirac-status-component = DIRAC.FrameworkSystem.scripts.dirac_status_component:main
-      - dirac-stop-component = DIRAC.FrameworkSystem.scripts.dirac_stop_component:main
-      - dirac-sys-sendmail = DIRAC.FrameworkSystem.scripts.dirac_sys_sendmail:main
-      - dirac-transformation-add-files = DIRAC.TransformationSystem.scripts.dirac_transformation_add_files:main
-      - dirac-transformation-archive = DIRAC.TransformationSystem.scripts.dirac_transformation_archive:main
-      - dirac-transformation-clean = DIRAC.TransformationSystem.scripts.dirac_transformation_clean:main
-      - dirac-transformation-cli = DIRAC.TransformationSystem.scripts.dirac_transformation_cli:main
-      - dirac-transformation-get-files = DIRAC.TransformationSystem.scripts.dirac_transformation_get_files:main
-      - dirac-transformation-information = DIRAC.TransformationSystem.scripts.dirac_transformation_information:main
-      - dirac-transformation-recover-data = DIRAC.TransformationSystem.scripts.dirac_transformation_recover_data:main
-      - dirac-transformation-remove-output = DIRAC.TransformationSystem.scripts.dirac_transformation_remove_output:main
-      - dirac-transformation-replication = DIRAC.TransformationSystem.scripts.dirac_transformation_replication:main
-      - dirac-transformation-update-derived = DIRAC.TransformationSystem.scripts.dirac_transformation_update_derived:main
-      - dirac-transformation-verify-outputdata = DIRAC.TransformationSystem.scripts.dirac_transformation_verify_outputdata:main
-      - dirac-uninstall-component = DIRAC.FrameworkSystem.scripts.dirac_uninstall_component:main
-      - dirac-utils-file-adler = DIRAC.Interfaces.scripts.dirac_utils_file_adler:main
-      - dirac-utils-file-md5 = DIRAC.Interfaces.scripts.dirac_utils_file_md5:main
-      - dirac-version = DIRAC.Core.scripts.dirac_version:main
-      - dirac-vm-cli = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_cli:main
-      - dirac-vm-endpoint-status = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_endpoint_status:main
-      - dirac-vm-get-pilot-output = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_get_pilot_output:main
-      - dirac-vm-instance-stop = DIRAC.WorkloadManagementSystem.scripts.dirac_vm_instance_stop:main
-      - dirac-wms-cpu-normalization = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_cpu_normalization:main
-      - dirac-wms-get-normalized-queue-length = DIRAC.Interfaces.scripts.dirac_wms_get_normalized_queue_length:main
-      - dirac-wms-get-queue-cpu-time = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_queue_cpu_time:main
-      - dirac-wms-get-queue-normalization = DIRAC.Interfaces.scripts.dirac_wms_get_queue_normalization:main
-      - dirac-wms-get-wn = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn:main
-      - dirac-wms-get-wn-parameters = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn_parameters:main
-      - dirac-wms-job-attributes = DIRAC.Interfaces.scripts.dirac_wms_job_attributes:main
-      - dirac-wms-job-delete = DIRAC.Interfaces.scripts.dirac_wms_job_delete:main
-      - dirac-wms-job-get-input = DIRAC.Interfaces.scripts.dirac_wms_job_get_input:main
-      - dirac-wms-job-get-jdl = DIRAC.Interfaces.scripts.dirac_wms_job_get_jdl:main
-      - dirac-wms-job-get-output = DIRAC.Interfaces.scripts.dirac_wms_job_get_output:main
-      - dirac-wms-job-get-output-data = DIRAC.Interfaces.scripts.dirac_wms_job_get_output_data:main
-      - dirac-wms-job-kill = DIRAC.Interfaces.scripts.dirac_wms_job_kill:main
-      - dirac-wms-job-logging-info = DIRAC.Interfaces.scripts.dirac_wms_job_logging_info:main
-      - dirac-wms-job-parameters = DIRAC.Interfaces.scripts.dirac_wms_job_parameters:main
-      - dirac-wms-job-peek = DIRAC.Interfaces.scripts.dirac_wms_job_peek:main
-      - dirac-wms-job-reschedule = DIRAC.Interfaces.scripts.dirac_wms_job_reschedule:main
-      - dirac-wms-job-status = DIRAC.Interfaces.scripts.dirac_wms_job_status:main
-      - dirac-wms-job-submit = DIRAC.Interfaces.scripts.dirac_wms_job_submit:main
-      - dirac-wms-jobs-select-output-search = DIRAC.Interfaces.scripts.dirac_wms_jobs_select_output_search:main
-      - dirac-wms-match = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_match:main
-      - dirac-wms-pilot-job-info = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_pilot_job_info:main
-      - dirac-wms-select-jobs = DIRAC.Interfaces.scripts.dirac_wms_select_jobs:main
-      - dkill = DIRAC.Interfaces.scripts.dkill:main
-      - dlogging = DIRAC.Interfaces.scripts.dlogging:main
-      - dls = DIRAC.Interfaces.scripts.dls:main
-      - dmeta = DIRAC.Interfaces.scripts.dmeta:main
-      - dmkdir = DIRAC.Interfaces.scripts.dmkdir:main
-      - doutput = DIRAC.Interfaces.scripts.doutput:main
-      - dput = DIRAC.Interfaces.scripts.dput:main
-      - dpwd = DIRAC.Interfaces.scripts.dpwd:main
-      - drepl = DIRAC.Interfaces.scripts.drepl:main
-      - dreplicas = DIRAC.Interfaces.scripts.dreplicas:main
-      - drm = DIRAC.Interfaces.scripts.drm:main
-      - drmdir = DIRAC.Interfaces.scripts.drmdir:main
-      - dsize = DIRAC.Interfaces.scripts.dsize:main
-      - dstat = DIRAC.Interfaces.scripts.dstat:main
-      - dsub = DIRAC.Interfaces.scripts.dsub:main
-      - tornado-start-CS = DIRAC.Core.Tornado.scripts.tornado_start_CS:main
-      - tornado-start-all = DIRAC.Core.Tornado.scripts.tornado_start_all:main
+  number: 1
 
-requirements:
-  host:
-    - python >=3.9
-    - setuptools >=42
-    - wheel
-    - setuptools-scm >=3.4
-    - pip
-  run:
-    - python >=3.9
-    - boto3
-    - botocore
-    - cachetools
-    - certifi
-    - cwltool
-    - diraccfg
-    - db12
-    - fts3
-    - python-gfal2
-    - importlib_metadata >=4.4
-    - importlib-resources
-    - m2crypto >=0.36
-    - packaging
-    - pexpect
-    - prompt-toolkit >=3
-    - psutil
-    - pyasn1
-    - pyasn1-modules
-    - pyparsing
-    - python-dateutil
-    - pytz
-    - requests
-    - rucio-clients >=34.4.2
-    - setuptools
-    - sqlalchemy
-    - typing_extensions >=4.3.0
-    - voms
-    - authlib >=1.0.0.a2
-    - pyjwt
-    - dominate
+outputs:
+  - package:
+      name: diraccommon
+      version: 9.0.11
 
-tests:
-- python:
-    imports:
-    - DIRAC
-    pip_check: true
+    source:
+      - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-9.0.11.tar.gz
+        sha256: f5223f57917b5823150354933cef87e973ee126aea62c638e66a654d40c9fbbb
+      - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v9.0.11/LICENSE
+        sha256: bb2af8a15ea39a351e7a95d93cf8e4251c1ae6ae4cac8ee3a89cf9b155cd6e54
+
+    build:
+      script: ${{ PYTHON }} -m pip install .
+      noarch: python
+
+    requirements:
+      host:
+      - python ${{ python_min }}.*
+      - hatchling
+      - hatch-vcs
+      - pip
+      run:
+      - python >=${{ python_min }}
+      - diraccfg
+      - pydantic >=2.0.0
+      - typing-extensions >=4.0.0
+
+    tests:
+    - python:
+        python_version: ${{ python_min }}.*
+        imports:
+        - DIRACCommon
+        pip_check: true
+
+    about:
+      homepage: https://github.com/DIRACGrid/DIRAC/tree/integration/dirac-common
+      summary: Stateless utilities extracted from DIRAC for use by DiracX and other projects
+
+  - package:
+      name: dirac-grid
+      version: ${{ version }}
+
+    source:
+    - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
+      sha256: bbda57ad7483dbbfe3ad3f897b1a58f43b81da7259ae59b946663de62f62138e
+
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install .
+      python:
+        entry_points:
+          - dcd = DIRAC.Interfaces.scripts.dcd:main
+          - dchgrp = DIRAC.Interfaces.scripts.dchgrp:main
+          - dchmod = DIRAC.Interfaces.scripts.dchmod:main
+          - dchown = DIRAC.Interfaces.scripts.dchown:main
+          - dconfig = DIRAC.Interfaces.scripts.dconfig:main
+          - dfind = DIRAC.Interfaces.scripts.dfind:main
+          - dget = DIRAC.Interfaces.scripts.dget:main
+          - dgetenv = DIRAC.Interfaces.scripts.dgetenv:main
+          - dirac-accounting-decode-fileid = DIRAC.AccountingSystem.scripts.dirac_accounting_decode_fileid:main
+          - dirac-admin-accounting-cli = DIRAC.AccountingSystem.scripts.dirac_admin_accounting_cli:main
+          - dirac-admin-add-group = DIRAC.Interfaces.scripts.dirac_admin_add_group:main
+          - dirac-admin-add-host = DIRAC.Interfaces.scripts.dirac_admin_add_host:main
+          - dirac-admin-add-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_add_pilot:main
+          - dirac-admin-add-resources = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_resources:main
+          - dirac-admin-add-shifter = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_shifter:main
+          - dirac-admin-add-site = DIRAC.ConfigurationSystem.scripts.dirac_admin_add_site:main
+          - dirac-admin-add-user = DIRAC.Interfaces.scripts.dirac_admin_add_user:main
+          - dirac-admin-allow-se = DIRAC.DataManagementSystem.scripts.dirac_admin_allow_se:main
+          - dirac-admin-allow-site = DIRAC.Interfaces.scripts.dirac_admin_allow_site:main
+          - dirac-admin-ban-se = DIRAC.DataManagementSystem.scripts.dirac_admin_ban_se:main
+          - dirac-admin-ban-site = DIRAC.Interfaces.scripts.dirac_admin_ban_site:main
+          - dirac-admin-ce-info = DIRAC.Interfaces.scripts.dirac_admin_ce_info:main
+          - dirac-admin-check-config-options = DIRAC.ConfigurationSystem.scripts.dirac_admin_check_config_options:main
+          - dirac-admin-delete-user = DIRAC.Interfaces.scripts.dirac_admin_delete_user:main
+          - dirac-admin-get-CAs = DIRAC.FrameworkSystem.scripts.dirac_admin_get_CAs:main
+          - dirac-admin-get-banned-sites = DIRAC.Interfaces.scripts.dirac_admin_get_banned_sites:main
+          - dirac-admin-get-job-pilot-output = DIRAC.Interfaces.scripts.dirac_admin_get_job_pilot_output:main
+          - dirac-admin-get-job-pilots = DIRAC.Interfaces.scripts.dirac_admin_get_job_pilots:main
+          - dirac-admin-get-pilot-info = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_info:main
+          - dirac-admin-get-pilot-logging-info = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_logging_info:main
+          - dirac-admin-get-pilot-output = DIRAC.Interfaces.scripts.dirac_admin_get_pilot_output:main
+          - dirac-admin-get-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_get_proxy:main
+          - dirac-admin-get-site-mask = DIRAC.Interfaces.scripts.dirac_admin_get_site_mask:main
+          - dirac-admin-kill-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_kill_pilot:main
+          - dirac-admin-list-hosts = DIRAC.Interfaces.scripts.dirac_admin_list_hosts:main
+          - dirac-admin-list-users = DIRAC.Interfaces.scripts.dirac_admin_list_users:main
+          - dirac-admin-modify-user = DIRAC.Interfaces.scripts.dirac_admin_modify_user:main
+          - dirac-admin-pilot-summary = DIRAC.Interfaces.scripts.dirac_admin_pilot_summary:main
+          - dirac-admin-proxy-upload = DIRAC.FrameworkSystem.scripts.dirac_admin_proxy_upload:main
+          - dirac-admin-reset-job = DIRAC.Interfaces.scripts.dirac_admin_reset_job:main
+          - dirac-admin-set-site-protocols = DIRAC.Interfaces.scripts.dirac_admin_set_site_protocols:main
+          - dirac-admin-show-task-queues = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_show_task_queues:main
+          - dirac-admin-site-info = DIRAC.Interfaces.scripts.dirac_admin_site_info:main
+          - dirac-admin-site-mask-logging = DIRAC.Interfaces.scripts.dirac_admin_site_mask_logging:main
+          - dirac-admin-sort-cs-sites = DIRAC.ConfigurationSystem.scripts.dirac_admin_sort_cs_sites:main
+          - dirac-admin-sync-pilot = DIRAC.WorkloadManagementSystem.scripts.dirac_admin_sync_pilot:main
+          - dirac-admin-sync-users-from-file = DIRAC.Interfaces.scripts.dirac_admin_sync_users_from_file:main
+          - dirac-admin-sysadmin-cli = DIRAC.FrameworkSystem.scripts.dirac_admin_sysadmin_cli:main
+          - dirac-admin-update-instance = DIRAC.FrameworkSystem.scripts.dirac_admin_update_instance:main
+          - dirac-admin-update-pilot = DIRAC.FrameworkSystem.scripts.dirac_admin_update_pilot:main
+          - dirac-admin-user-quota = DIRAC.DataManagementSystem.scripts.dirac_admin_user_quota:main
+          - dirac-admin-users-with-proxy = DIRAC.FrameworkSystem.scripts.dirac_admin_users_with_proxy:main
+          - dirac-admin-voms-sync = DIRAC.ConfigurationSystem.scripts.dirac_admin_voms_sync:main
+          - dirac-agent = DIRAC.Core.scripts.dirac_agent:main
+          - dirac-apptainer-exec = DIRAC.Core.scripts.dirac_apptainer_exec:main
+          - dirac-cert-convert = DIRAC.Core.scripts.dirac_cert_convert:main
+          - dirac-configuration-cli = DIRAC.ConfigurationSystem.scripts.dirac_configuration_cli:main
+          - dirac-configuration-dump-local-cache = DIRAC.ConfigurationSystem.scripts.dirac_configuration_dump_local_cache:main
+          - dirac-configuration-shell = DIRAC.ConfigurationSystem.scripts.dirac_configuration_shell:main
+          - dirac-configure = DIRAC.Core.scripts.dirac_configure:main
+          - dirac-diracx-whoami = DIRAC.FrameworkSystem.scripts.dirac_diracx_whoami:main
+          - dirac-dms-add-file = DIRAC.DataManagementSystem.scripts.dirac_dms_add_file:main
+          - dirac-dms-catalog-metadata = DIRAC.DataManagementSystem.scripts.dirac_dms_catalog_metadata:main
+          - dirac-dms-change-replica-status = DIRAC.DataManagementSystem.scripts.dirac_dms_change_replica_status:main
+          - dirac-dms-clean-directory = DIRAC.DataManagementSystem.scripts.dirac_dms_clean_directory:main
+          - dirac-dms-create-archive-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_archive_request:main
+          - dirac-dms-create-moving-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_moving_request:main
+          - dirac-dms-create-removal-request = DIRAC.DataManagementSystem.scripts.dirac_dms_create_removal_request:main
+          - dirac-dms-data-size = DIRAC.DataManagementSystem.scripts.dirac_dms_data_size:main
+          - dirac-dms-directory-sync = DIRAC.DataManagementSystem.scripts.dirac_dms_directory_sync:main
+          - dirac-dms-filecatalog-cli = DIRAC.DataManagementSystem.scripts.dirac_dms_filecatalog_cli:main
+          - dirac-dms-find-lfns = DIRAC.DataManagementSystem.scripts.dirac_dms_find_lfns:main
+          - dirac-dms-get-file = DIRAC.Interfaces.scripts.dirac_dms_get_file:main
+          - dirac-dms-lfn-accessURL = DIRAC.Interfaces.scripts.dirac_dms_lfn_accessURL:main
+          - dirac-dms-lfn-metadata = DIRAC.Interfaces.scripts.dirac_dms_lfn_metadata:main
+          - dirac-dms-lfn-replicas = DIRAC.Interfaces.scripts.dirac_dms_lfn_replicas:main
+          - dirac-dms-move-replica-request = DIRAC.DataManagementSystem.scripts.dirac_dms_move_replica_request:main
+          - dirac-dms-pfn-accessURL = DIRAC.Interfaces.scripts.dirac_dms_pfn_accessURL:main
+          - dirac-dms-pfn-metadata = DIRAC.Interfaces.scripts.dirac_dms_pfn_metadata:main
+          - dirac-dms-protocol-matrix = DIRAC.DataManagementSystem.scripts.dirac_dms_protocol_matrix:main
+          - dirac-dms-put-and-register-request = DIRAC.DataManagementSystem.scripts.dirac_dms_put_and_register_request:main
+          - dirac-dms-remove-catalog-files = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_catalog_files:main
+          - dirac-dms-remove-catalog-replicas = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_catalog_replicas:main
+          - dirac-dms-remove-files = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_files:main
+          - dirac-dms-remove-replicas = DIRAC.DataManagementSystem.scripts.dirac_dms_remove_replicas:main
+          - dirac-dms-replica-metadata = DIRAC.DataManagementSystem.scripts.dirac_dms_replica_metadata:main
+          - dirac-dms-replicate-and-register-request = DIRAC.DataManagementSystem.scripts.dirac_dms_replicate_and_register_request:main
+          - dirac-dms-replicate-lfn = DIRAC.Interfaces.scripts.dirac_dms_replicate_lfn:main
+          - dirac-dms-resolve-guid = DIRAC.DataManagementSystem.scripts.dirac_dms_resolve_guid:main
+          - dirac-dms-set-replica-status = DIRAC.DataManagementSystem.scripts.dirac_dms_set_replica_status:main
+          - dirac-dms-show-se-status = DIRAC.DataManagementSystem.scripts.dirac_dms_show_se_status:main
+          - dirac-dms-user-lfns = DIRAC.DataManagementSystem.scripts.dirac_dms_user_lfns:main
+          - dirac-dms-user-quota = DIRAC.DataManagementSystem.scripts.dirac_dms_user_quota:main
+          - dirac-executor = DIRAC.Core.scripts.dirac_executor:main
+          - dirac-framework-ping-service = DIRAC.Interfaces.scripts.dirac_framework_ping_service:main
+          - dirac-framework-self-ping = DIRAC.Interfaces.scripts.dirac_framework_self_ping:main
+          - dirac-generate-cas = DIRAC.Core.scripts.dirac_generate_cas:main
+          - dirac-generate-crls = DIRAC.Core.scripts.dirac_generate_crls:main
+          - dirac-info = DIRAC.Core.scripts.dirac_info:main
+          - dirac-install-component = DIRAC.FrameworkSystem.scripts.dirac_install_component:main
+          - dirac-install-db = DIRAC.Core.scripts.dirac_install_db:main
+          - dirac-install-web-portal = DIRAC.Core.scripts.dirac_install_web_portal:main
+          - dirac-jobexec = DIRAC.WorkloadManagementSystem.scripts.dirac_jobexec:main
+          - dirac-login = DIRAC.FrameworkSystem.scripts.dirac_login:main
+          - dirac-logout = DIRAC.FrameworkSystem.scripts.dirac_logout:main
+          - dirac-platform = DIRAC.Core.scripts.dirac_platform:main
+          - dirac-prod-add-trans = DIRAC.ProductionSystem.scripts.dirac_prod_add_trans:main
+          - dirac-prod-clean = DIRAC.ProductionSystem.scripts.dirac_prod_clean:main
+          - dirac-prod-complete = DIRAC.ProductionSystem.scripts.dirac_prod_complete:main
+          - dirac-prod-delete = DIRAC.ProductionSystem.scripts.dirac_prod_delete:main
+          - dirac-prod-get = DIRAC.ProductionSystem.scripts.dirac_prod_get:main
+          - dirac-prod-get-all = DIRAC.ProductionSystem.scripts.dirac_prod_get_all:main
+          - dirac-prod-get-description = DIRAC.ProductionSystem.scripts.dirac_prod_get_description:main
+          - dirac-prod-get-trans = DIRAC.ProductionSystem.scripts.dirac_prod_get_trans:main
+          - dirac-prod-start = DIRAC.ProductionSystem.scripts.dirac_prod_start:main
+          - dirac-prod-stop = DIRAC.ProductionSystem.scripts.dirac_prod_stop:main
+          - dirac-production-runjoblocal = DIRAC.TransformationSystem.scripts.dirac_production_runjoblocal:main
+          - dirac-proxy-destroy = DIRAC.FrameworkSystem.scripts.dirac_proxy_destroy:main
+          - dirac-proxy-get-uploaded-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_get_uploaded_info:main
+          - dirac-proxy-info = DIRAC.FrameworkSystem.scripts.dirac_proxy_info:main
+          - dirac-proxy-init = DIRAC.FrameworkSystem.scripts.dirac_proxy_init:main
+          - dirac-resource-get-parameters = DIRAC.Resources.scripts.dirac_resource_get_parameters:main
+          - dirac-resource-info = DIRAC.Resources.scripts.dirac_resource_info:main
+          - dirac-restart-component = DIRAC.FrameworkSystem.scripts.dirac_restart_component:main
+          - dirac-rms-list-req-cache = DIRAC.RequestManagementSystem.scripts.dirac_rms_list_req_cache:main
+          - dirac-rms-reqdb-summary = DIRAC.RequestManagementSystem.scripts.dirac_rms_reqdb_summary:main
+          - dirac-rms-request = DIRAC.RequestManagementSystem.scripts.dirac_rms_request:main
+          - dirac-rss-list-status = DIRAC.ResourceStatusSystem.scripts.dirac_rss_list_status:main
+          - dirac-rss-query-db = DIRAC.ResourceStatusSystem.scripts.dirac_rss_query_db:main
+          - dirac-rss-query-dtcache = DIRAC.ResourceStatusSystem.scripts.dirac_rss_query_dtcache:main
+          - dirac-rss-set-status = DIRAC.ResourceStatusSystem.scripts.dirac_rss_set_status:main
+          - dirac-rss-set-token = DIRAC.ResourceStatusSystem.scripts.dirac_rss_set_token:main
+          - dirac-rss-sync = DIRAC.ResourceStatusSystem.scripts.dirac_rss_sync:main
+          - dirac-service = DIRAC.Core.scripts.dirac_service:main
+          - dirac-setup-site = DIRAC.Core.scripts.dirac_setup_site:main
+          - dirac-stager-monitor-file = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_file:main
+          - dirac-stager-monitor-jobs = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_jobs:main
+          - dirac-stager-monitor-request = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_request:main
+          - dirac-stager-monitor-requests = DIRAC.StorageManagementSystem.scripts.dirac_stager_monitor_requests:main
+          - dirac-stager-show-stats = DIRAC.StorageManagementSystem.scripts.dirac_stager_show_stats:main
+          - dirac-stager-stage-files = DIRAC.StorageManagementSystem.scripts.dirac_stager_stage_files:main
+          - dirac-start-component = DIRAC.FrameworkSystem.scripts.dirac_start_component:main
+          - dirac-status-component = DIRAC.FrameworkSystem.scripts.dirac_status_component:main
+          - dirac-stop-component = DIRAC.FrameworkSystem.scripts.dirac_stop_component:main
+          - dirac-sys-sendmail = DIRAC.FrameworkSystem.scripts.dirac_sys_sendmail:main
+          - dirac-transformation-add-files = DIRAC.TransformationSystem.scripts.dirac_transformation_add_files:main
+          - dirac-transformation-cli = DIRAC.TransformationSystem.scripts.dirac_transformation_cli:main
+          - dirac-transformation-get-files = DIRAC.TransformationSystem.scripts.dirac_transformation_get_files:main
+          - dirac-transformation-information = DIRAC.TransformationSystem.scripts.dirac_transformation_information:main
+          - dirac-transformation-recover-data = DIRAC.TransformationSystem.scripts.dirac_transformation_recover_data:main
+          - dirac-transformation-replication = DIRAC.TransformationSystem.scripts.dirac_transformation_replication:main
+          - dirac-transformation-update-derived = DIRAC.TransformationSystem.scripts.dirac_transformation_update_derived:main
+          - dirac-transformation-verify-outputdata = DIRAC.TransformationSystem.scripts.dirac_transformation_verify_outputdata:main
+          - dirac-uninstall-component = DIRAC.FrameworkSystem.scripts.dirac_uninstall_component:main
+          - dirac-utils-file-adler = DIRAC.Interfaces.scripts.dirac_utils_file_adler:main
+          - dirac-utils-file-md5 = DIRAC.Interfaces.scripts.dirac_utils_file_md5:main
+          - dirac-version = DIRAC.Core.scripts.dirac_version:main
+          - dirac-wms-cpu-normalization = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_cpu_normalization:main
+          - dirac-wms-get-queue-cpu-time = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_queue_cpu_time:main
+          - dirac-wms-get-wn = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn:main
+          - dirac-wms-get-wn-parameters = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_get_wn_parameters:main
+          - dirac-wms-job-attributes = DIRAC.Interfaces.scripts.dirac_wms_job_attributes:main
+          - dirac-wms-job-delete = DIRAC.Interfaces.scripts.dirac_wms_job_delete:main
+          - dirac-wms-job-get-input = DIRAC.Interfaces.scripts.dirac_wms_job_get_input:main
+          - dirac-wms-job-get-jdl = DIRAC.Interfaces.scripts.dirac_wms_job_get_jdl:main
+          - dirac-wms-job-get-output = DIRAC.Interfaces.scripts.dirac_wms_job_get_output:main
+          - dirac-wms-job-get-output-data = DIRAC.Interfaces.scripts.dirac_wms_job_get_output_data:main
+          - dirac-wms-job-kill = DIRAC.Interfaces.scripts.dirac_wms_job_kill:main
+          - dirac-wms-job-logging-info = DIRAC.Interfaces.scripts.dirac_wms_job_logging_info:main
+          - dirac-wms-job-parameters = DIRAC.Interfaces.scripts.dirac_wms_job_parameters:main
+          - dirac-wms-job-peek = DIRAC.Interfaces.scripts.dirac_wms_job_peek:main
+          - dirac-wms-job-reschedule = DIRAC.Interfaces.scripts.dirac_wms_job_reschedule:main
+          - dirac-wms-job-status = DIRAC.Interfaces.scripts.dirac_wms_job_status:main
+          - dirac-wms-job-submit = DIRAC.Interfaces.scripts.dirac_wms_job_submit:main
+          - dirac-wms-jobs-select-output-search = DIRAC.Interfaces.scripts.dirac_wms_jobs_select_output_search:main
+          - dirac-wms-match = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_match:main
+          - dirac-wms-pilot-job-info = DIRAC.WorkloadManagementSystem.scripts.dirac_wms_pilot_job_info:main
+          - dirac-wms-select-jobs = DIRAC.Interfaces.scripts.dirac_wms_select_jobs:main
+          - dkill = DIRAC.Interfaces.scripts.dkill:main
+          - dlogging = DIRAC.Interfaces.scripts.dlogging:main
+          - dls = DIRAC.Interfaces.scripts.dls:main
+          - dmeta = DIRAC.Interfaces.scripts.dmeta:main
+          - dmkdir = DIRAC.Interfaces.scripts.dmkdir:main
+          - doutput = DIRAC.Interfaces.scripts.doutput:main
+          - dput = DIRAC.Interfaces.scripts.dput:main
+          - dpwd = DIRAC.Interfaces.scripts.dpwd:main
+          - drepl = DIRAC.Interfaces.scripts.drepl:main
+          - dreplicas = DIRAC.Interfaces.scripts.dreplicas:main
+          - drm = DIRAC.Interfaces.scripts.drm:main
+          - drmdir = DIRAC.Interfaces.scripts.drmdir:main
+          - dsize = DIRAC.Interfaces.scripts.dsize:main
+          - dstat = DIRAC.Interfaces.scripts.dstat:main
+          - dsub = DIRAC.Interfaces.scripts.dsub:main
+          - tornado-start-CS = DIRAC.Core.Tornado.scripts.tornado_start_CS:main
+          - tornado-start-all = DIRAC.Core.Tornado.scripts.tornado_start_all:main
+
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - setuptools >=42
+        - wheel
+        - setuptools-scm >=3.4
+        - pip
+      run:
+        - python >=${{ python_min }}
+        - boto3 >=1.35
+        - botocore >=1.35
+        - cachetools
+        - certifi
+        - cwltool
+        - diraccfg
+        - ${{ pin_subpackage("diraccommon", exact=True) }}
+        - diracx-client >=v0.0.1
+        - diracx-core >=v0.0.1
+        - diracx-cli >=v0.0.1
+        - db12
+        - fts3
+        - python-gfal2
+        - importlib-metadata >=4.4
+        - importlib-resources
+        - m2crypto >=0.36
+        - packaging
+        - pexpect
+        - prompt-toolkit >=3
+        - psutil
+        - pyasn1
+        - pyasn1-modules
+        - pydantic >=2.4
+        - pyparsing
+        - python-dateutil
+        - pytz
+        - requests
+        - rucio-clients >=34.4.2
+        - sqlalchemy
+        - typing_extensions >=4.3.0
+        - voms
+        - authlib >=1.0.0.a2
+        - pyjwt
+        - dominate
+        - zstandard
+
+    tests:
+    - python:
+        python_version: ${{ python_min }}.*
+        imports:
+        - DIRAC
+        pip_check: true
+
+    about:
+      summary: DIRAC is an interware, meaning a software framework for distributed computing.
+      homepage: https://diracgrid.org
 
 about:
   homepage: https://diracgrid.org
@@ -293,5 +333,6 @@ about:
     distributed computing workflows.
 
 extra:
+  feedstock-name: dirac-grid
   recipe-maintainers:
     - chrisburr
