@@ -2,6 +2,10 @@ context:
   version: 9.0.11
   python_min: 3.11
 
+recipe:
+  name: dirac-grid
+  version: ${{ version }}
+
 build:
   number: 1
 
@@ -267,14 +271,14 @@ outputs:
         - certifi
         - cwltool
         - diraccfg
-        - diraccommon ==v${{ version }}
+        - ${{ pin_subpackage("diraccommon", exact=True) }}
         - diracx-client >=v0.0.1
         - diracx-core >=v0.0.1
         - diracx-cli >=v0.0.1
         - db12
         - fts3
         - python-gfal2
-        - importlib_metadata >=4.4
+        - importlib-metadata >=4.4
         - importlib-resources
         - m2crypto >=0.36
         - packaging
@@ -309,10 +313,12 @@ outputs:
       homepage: https://diracgrid.org
 
 about:
+  homepage: https://diracgrid.org
   repository: https://github.com/DIRACGrid/DIRAC/
   documentation: https://dirac.readthedocs.io/
   license: GPL-3.0-or-later
   license_file: LICENSE
+  summary: DIRAC is an interware, meaning a software framework for distributed computing.
   description: |
     DIRAC (Distributed Infrastructure with Remote Agent Control) INTERWARE is a
     software framework for distributed computing providing a complete solution
@@ -327,5 +333,6 @@ about:
     distributed computing workflows.
 
 extra:
+  feedstock-name: dirac-grid
   recipe-maintainers:
     - chrisburr
