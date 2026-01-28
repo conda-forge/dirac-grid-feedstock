@@ -1,5 +1,5 @@
 context:
-  version: 9.0.11
+  version: 9.0.16
   python_min: 3.11
 
 recipe:
@@ -7,17 +7,17 @@ recipe:
   version: ${{ version }}
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - package:
       name: diraccommon
-      version: 9.0.11
+      version: ${{ version }}
 
     source:
-      - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-9.0.11.tar.gz
-        sha256: f5223f57917b5823150354933cef87e973ee126aea62c638e66a654d40c9fbbb
-      - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v9.0.11/LICENSE
+      - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-${{ version }}.tar.gz
+        sha256: 7ae43c63075770e1314c40f2e7bd7708ae22a45262489e8912b881adf9f1aa2c
+      - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v${{ version }}/LICENSE
         sha256: bb2af8a15ea39a351e7a95d93cf8e4251c1ae6ae4cac8ee3a89cf9b155cd6e54
 
     build:
@@ -53,7 +53,7 @@ outputs:
 
     source:
     - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-      sha256: bbda57ad7483dbbfe3ad3f897b1a58f43b81da7259ae59b946663de62f62138e
+      sha256: 548b85b3b0ecf17487f3deba5073763583dd7eb812bf063f409153fc44c7402f
 
     build:
       noarch: python
