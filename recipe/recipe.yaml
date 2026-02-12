@@ -1,5 +1,5 @@
 context:
-  version: 9.0.17
+  version: "9.0.18"
   python_min: 3.11
 
 recipe:
@@ -16,7 +16,7 @@ outputs:
 
     source:
       - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-${{ version }}.tar.gz
-        sha256: f9f93866823e5c7aa54856879f3eccf1b7e6eee201970aa2cf11c526ddd1b9d5
+        sha256: 4724c03bc22d028203a8f05eac41809b29c08c4b69ff7460b102e6f85d9212fa
       - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v${{ version }}/LICENSE
         sha256: bb2af8a15ea39a351e7a95d93cf8e4251c1ae6ae4cac8ee3a89cf9b155cd6e54
 
@@ -26,22 +26,22 @@ outputs:
 
     requirements:
       host:
-      - python ${{ python_min }}.*
-      - hatchling
-      - hatch-vcs
-      - pip
+        - python ${{ python_min }}.*
+        - hatchling
+        - hatch-vcs
+        - pip
       run:
-      - python >=${{ python_min }}
-      - diraccfg
-      - pydantic >=2.0.0
-      - typing-extensions >=4.0.0
+        - python >=${{ python_min }}
+        - diraccfg
+        - pydantic >=2.0.0
+        - typing-extensions >=4.0.0
 
     tests:
-    - python:
-        python_version: ${{ python_min }}.*
-        imports:
-        - DIRACCommon
-        pip_check: true
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - DIRACCommon
+          pip_check: true
 
     about:
       homepage: https://github.com/DIRACGrid/DIRAC/tree/integration/dirac-common
@@ -52,8 +52,8 @@ outputs:
       version: ${{ version }}
 
     source:
-    - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-      sha256: a2f0d47608c999869bbf7fcd62b7b8a875595f4c6d0647c5f18eef94be70357f
+      - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
+        sha256: 5de1a5c2934800e4262e7a9d508f9c7255823fb2d866fffe690c204d1218d911
 
     build:
       noarch: python
@@ -303,11 +303,11 @@ outputs:
         - xattr
 
     tests:
-    - python:
-        python_version: ${{ python_min }}.*
-        imports:
-        - DIRAC
-        pip_check: true
+      - python:
+          python_version: ${{ python_min }}.*
+          imports:
+            - DIRAC
+          pip_check: true
 
     about:
       summary: DIRAC is an interware, meaning a software framework for distributed computing.
