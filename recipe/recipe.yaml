@@ -336,4 +336,5 @@ about:
 extra:
   feedstock-name: dirac-grid
   recipe-maintainers:
+    - chaen
     - chrisburr
