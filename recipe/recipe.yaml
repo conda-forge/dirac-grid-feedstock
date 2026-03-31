@@ -1,6 +1,6 @@
 context:
   version: "9.1.4"
-  python_min: 3.11
+  python_min: "3.11"
 
 recipe:
   name: dirac-grid
@@ -276,12 +276,15 @@ outputs:
         - diracx-core >=v0.0.1
         - diracx-cli >=v0.0.1
         - db12
+        - invoke
+        - fabric
         - fts3
         - python-gfal2
         - importlib-metadata >=4.4
         - importlib-resources
         - m2crypto >=0.36
         - packaging
+        - paramiko
         - pexpect
         - prompt-toolkit >=3
         - psutil
