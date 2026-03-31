@@ -1,6 +1,6 @@
 context:
-  version: "9.1.1"
-  python_min: 3.11
+  version: "9.1.4"
+  python_min: "3.11"
 
 recipe:
   name: dirac-grid
@@ -16,7 +16,7 @@ outputs:
 
     source:
       - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-${{ version }}.tar.gz
-        sha256: 03bac4e4cee7900371f7477efe5ffe0f9d3e0b2ef00f1374bb8c81d83440a48a
+        sha256: 1471ac9c58f2c5fd45d7d2d2c9544ebb6580bb2de1b2ede52913867f3af8db73
       - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v${{ version }}/LICENSE
         sha256: bb2af8a15ea39a351e7a95d93cf8e4251c1ae6ae4cac8ee3a89cf9b155cd6e54
 
@@ -53,7 +53,7 @@ outputs:
 
     source:
       - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-        sha256: f9c2b2dc95ac5053e34a409e3127f6de4fdb5d10d564944aee8c2aaedfbfdace
+        sha256: 2ca54b8bc6a283dc87abf99a6a136128472e12efdcfd73b74b95f82e967dab76
 
     build:
       noarch: python
@@ -276,12 +276,15 @@ outputs:
         - diracx-core >=v0.0.1
         - diracx-cli >=v0.0.1
         - db12
+        - invoke
+        - fabric
         - fts3
         - python-gfal2
         - importlib-metadata >=4.4
         - importlib-resources
         - m2crypto >=0.36
         - packaging
+        - paramiko
         - pexpect
         - prompt-toolkit >=3
         - psutil
