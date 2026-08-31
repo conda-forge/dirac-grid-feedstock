@@ -7,7 +7,7 @@ recipe:
   version: ${{ version }}
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - package:
@@ -282,7 +282,8 @@ outputs:
         - python-gfal2
         - importlib-metadata >=4.4
         - importlib-resources
-        - m2crypto >=0.36
+        # m2crypto breaks dirac clients on versions >=0.46
+        - m2crypto >=0.36,<0.46.0a0
         - packaging
         - paramiko
         - pexpect
