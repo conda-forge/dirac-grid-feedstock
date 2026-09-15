@@ -234,6 +234,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@DIRACGridBot](https://github.com/DIRACGridBot/)
 * [@chaen](https://github.com/chaen/)
 * [@chrisburr](https://github.com/chrisburr/)
 
