@@ -1,5 +1,5 @@
 context:
-  version: 8.0.77
+  version: 8.0.83
 
 package:
   name: dirac-grid
@@ -7,7 +7,7 @@ package:
 
 source:
 - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-  sha256: 029a4beaa70111f99e4f1fa6004efff44815ff13c1a63dc200d4bdae3b983900
+  sha256: 036431bb9869dd69765eccfe943fdab0d28229f844a0f56028137be0229732b0
 
 build:
   number: 0
@@ -228,13 +228,13 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python ${{ python_min }}.*
     - setuptools >=42
     - wheel
     - setuptools-scm >=3.4
     - pip
   run:
-    - python >=3.9
+    - python >=${{ python_min }}
     - boto3
     - botocore
     - cachetools
@@ -244,9 +244,10 @@ requirements:
     - db12
     - fts3
     - python-gfal2
-    - importlib_metadata >=4.4
+    - importlib-metadata >=4.4
     - importlib-resources
-    - m2crypto >=0.36
+    # m2crypto breaks dirac clients on versions >=0.46,<0.50
+    - m2crypto >=0.36,<0.46.0a0 | >=0.50
     - packaging
     - pexpect
     - prompt-toolkit >=3
@@ -268,6 +269,9 @@ requirements:
 
 tests:
 - python:
+    python_version:
+    - ${{ python_min }}.*
+    - "*"
     imports:
     - DIRAC
     pip_check: true
