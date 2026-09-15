@@ -1,6 +1,5 @@
 context:
   version: "9.0.25"
-  python_min: "3.11"
 
 recipe:
   name: dirac-grid
