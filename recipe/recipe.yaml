@@ -246,7 +246,8 @@ requirements:
     - python-gfal2
     - importlib_metadata >=4.4
     - importlib-resources
-    - m2crypto >=0.36
+    # m2crypto breaks dirac clients on versions >=0.46,<0.50
+    - m2crypto >=0.36,<0.46.0a0 | >=0.50
     - packaging
     - pexpect
     - prompt-toolkit >=3
