@@ -278,8 +278,6 @@ outputs:
         - diracx-core >=v0.0.1
         - diracx-cli >=v0.0.1
         - db12
-        - invoke
-        - fabric
         - fts3
         - python-gfal2
         - importlib-metadata >=4.4
@@ -287,7 +285,6 @@ outputs:
         # m2crypto breaks dirac clients on versions >=0.46,<0.50
         - m2crypto >=0.36,<0.46.0a0 | >=0.50
         - packaging
-        - paramiko
         - pexpect
         - prompt-toolkit >=3
         - psutil
