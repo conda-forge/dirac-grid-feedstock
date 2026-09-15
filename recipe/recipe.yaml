@@ -228,13 +228,13 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python ${{ python_min }}.*
     - setuptools >=42
     - wheel
     - setuptools-scm >=3.4
     - pip
   run:
-    - python >=3.9
+    - python >=${{ python_min }}
     - boto3
     - botocore
     - cachetools
@@ -244,7 +244,7 @@ requirements:
     - db12
     - fts3
     - python-gfal2
-    - importlib_metadata >=4.4
+    - importlib-metadata >=4.4
     - importlib-resources
     # m2crypto breaks dirac clients on versions >=0.46,<0.50
     - m2crypto >=0.36,<0.46.0a0 | >=0.50
@@ -269,6 +269,9 @@ requirements:
 
 tests:
 - python:
+    python_version:
+    - ${{ python_min }}.*
+    - "*"
     imports:
     - DIRAC
     pip_check: true
