@@ -1,5 +1,5 @@
 context:
-  version: "9.1.22"
+  version: "9.1.23"
   python_min: "3.11"
 
 recipe:
@@ -16,7 +16,7 @@ outputs:
 
     source:
       - url: https://pypi.org/packages/source/d/diraccommon/diraccommon-${{ version }}.tar.gz
-        sha256: 289836a7904ae6174e2475faa5430c7dd61074c4d8bf290798fbb77c391b5977
+        sha256: 2d7d4be456b5784d8350a5f9a51cdf0219b85ae6065522ebaf5c78553e807d8e
       - url: https://raw.githubusercontent.com/DIRACGrid/DIRAC/refs/tags/v${{ version }}/LICENSE
         sha256: bb2af8a15ea39a351e7a95d93cf8e4251c1ae6ae4cac8ee3a89cf9b155cd6e54
 
@@ -55,7 +55,7 @@ outputs:
 
     source:
       - url: https://pypi.org/packages/source/d/dirac/dirac-${{ version }}.tar.gz
-        sha256: 92004d0e38d3b00d921c24f9513649d252cd2f445fe317c4cbf08bc7b381d56f
+        sha256: a0a095ecaa2846e57879c270c6b0cfe1ac25983981b80633529911a521646241
 
     build:
       noarch: python
